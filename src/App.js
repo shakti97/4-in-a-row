@@ -1,24 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.css";
+import "./App.css";
+import { Route, Switch } from "react-router-dom";
+import GamePanel from "./Components/GamePanel";
+import ComingSoon from "./Components/ComingSoon";
+import SplashScreen from "./Components/SplashScreen";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Switch>
+        <Route exact path='/' component={SplashScreen}/> 
+        <Route exact path="/game" component={GamePanel} />
+        <Route exact path="/coming-soon" component={ComingSoon} />
+      </Switch>
     </div>
   );
 }
